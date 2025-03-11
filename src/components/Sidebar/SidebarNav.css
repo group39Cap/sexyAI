@@ -1,0 +1,35 @@
+.sidebar-nav {
+    flex: 1;
+    padding: 0 8px;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    margin-bottom: 2px;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .nav-item:hover {
+    background-color: #eaeaea;
+  }
+  
+  .recent-search {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+  
+  .recent-search .nav-item {
+    color: #666;
+  }
