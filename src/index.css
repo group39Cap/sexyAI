@@ -1,4 +1,4 @@
-/* src/index.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,7 +36,7 @@
     font-weight: 600;
   }
   
-  // Additional styles for responsive design
+
   
   @media (max-width: 768px) {
     .app-container {

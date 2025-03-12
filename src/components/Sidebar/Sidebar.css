@@ -1,70 +1,100 @@
 .sidebar {
-    width: 250px;
-    height: 100%;
-    background-color: #f9f9f9;
-    border-right: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0;
-  }
-  
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px 16px;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  width: 260px;
+  background-color: #f5f5f7;
+  border-right: 1px solid #e6e6e6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 8px;
+  color: #0D9373;
+}
+
+.back-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #6e6e73;
+}
+
+.back-button:hover {
+  background-color: #e6e6e6;
+}
+
+.new-thread {
+  padding: 16px;
+}
+
+.new-thread-button {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #0D9373;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.new-thread-button:hover {
+  background-color: #0a7d5e;
+}
+
+.shortcut {
+  font-size: 12px;
+  opacity: 0.8;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
   }
   
   .logo-text {
-    font-weight: 600;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .back-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 4px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: #eaeaea;
-  }
-  
-  .new-thread {
-    padding: 0 16px 16px;
-  }
-  
-  .new-thread-button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    background-color: white;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .new-thread-button:hover {
-    background-color: #f5f5f5;
+    display: none;
   }
   
   .shortcut {
-    font-size: 12px;
-    color: #777;
+    display: none;
   }
+  
+  .new-thread-button {
+    justify-content: center;
+  }
+}

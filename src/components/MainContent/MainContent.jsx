@@ -10,10 +10,9 @@ const MainContent = () => {
   return (
     <div className="main-content">
       <SearchHeader />
-      <CometBanner />
       <div className="widgets-container">
-        <WeatherWidget />
-        <NewsCards />
+        {/* <WeatherWidget />
+        <NewsCards /> */}
       </div>
       <Footer />
     </div>
