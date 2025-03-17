@@ -1,0 +1,179 @@
+.sidebar {
+  width: 260px;
+  background-color: #f5f5f7;
+  border-right: 1px solid #e6e6e6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 8px;
+  color: #0D9373;
+}
+
+.back-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #6e6e73;
+}
+
+.back-button:hover {
+  background-color: #e6e6e6;
+}
+
+.new-thread {
+  padding: 16px;
+}
+
+.new-thread-button {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #0D9373;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.new-thread-button:hover {
+  background-color: #0a7d5e;
+}
+
+.shortcut {
+  font-size: 12px;
+  opacity: 0.8;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .shortcut {
+    display: none;
+  }
+  
+  .new-thread-button {
+    justify-content: center;
+  }
+}
+
+/* Add these styles to your existing Sidebar.css */
+
+.sidebar {
+  width: 260px;
+  background-color: #f5f5f7;
+  border-right: 1px solid #e6e6e6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar-collapsed {
+  width: 40px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+.collapse-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6e6e73;
+  margin-left: 8px;
+}
+
+.collapse-button:hover {
+  background-color: #e6e6e6;
+}
+
+.expand-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6e6e73;
+  position: absolute;
+  top: 16px;
+  left: 4px;
+}
+
+.expand-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Keep your existing responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .shortcut {
+    display: none;
+  }
+  
+  .new-thread-button {
+    justify-content: center;
+  }
+}

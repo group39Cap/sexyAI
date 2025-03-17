@@ -1,0 +1,39 @@
+.weather-widget {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .weather-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 16px;
+  }
+  
+  .temperature {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .weather-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .weather-condition {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .location-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #666;
+  }

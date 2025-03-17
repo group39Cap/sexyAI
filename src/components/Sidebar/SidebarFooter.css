@@ -1,0 +1,95 @@
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .pro-section {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .pro-section h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+  }
+  
+  .pro-section p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #555;
+  }
+  
+  .learn-more-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .user-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .user-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #007aff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  .username {
+    font-size: 13px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .settings-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+  }
+  
+  .download-button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .download-button button:hover {
+    background-color: #f5f5f5;
+  }
