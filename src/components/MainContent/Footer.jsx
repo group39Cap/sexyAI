@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <nav className="footer-nav">
-        <ul>
+        {/* <ul>
           <li><a href="/pro">Pro</a></li>
           <li><a href="/enterprise">Enterprise</a></li>
           <li><a href="/api">API</a></li>
@@ -21,16 +21,16 @@ const Footer = () => {
               </svg>
             </a>
           </li>
-        </ul>
+        </ul> */}
       </nav>
       
-      <button className="help-button">
+      {/* <button className="help-button">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
-      </button>
+      </button> */}
     </footer>
   );
 };

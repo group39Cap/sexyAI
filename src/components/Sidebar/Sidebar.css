@@ -98,3 +98,82 @@
     justify-content: center;
   }
 }
+
+/* Add these styles to your existing Sidebar.css */
+
+.sidebar {
+  width: 260px;
+  background-color: #f5f5f7;
+  border-right: 1px solid #e6e6e6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar-collapsed {
+  width: 40px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+.collapse-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6e6e73;
+  margin-left: 8px;
+}
+
+.collapse-button:hover {
+  background-color: #e6e6e6;
+}
+
+.expand-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6e6e73;
+  position: absolute;
+  top: 16px;
+  left: 4px;
+}
+
+.expand-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Keep your existing responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .shortcut {
+    display: none;
+  }
+  
+  .new-thread-button {
+    justify-content: center;
+  }
+}

@@ -23,7 +23,7 @@ const SidebarFooter = () => {
           onClick={() => setShowUserMenu(!showUserMenu)}
         >
           <div className="avatar">J</div>
-          <span className="username">johnkwakua6...</span>
+          <span className="username">jerryd877@...</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M6 9l6 6 6-6"></path>
           </svg>
