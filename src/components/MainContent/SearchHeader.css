@@ -4,9 +4,20 @@
   height: 100vh;
   max-width: 1000px;
   margin: 0 auto;
-  background-color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   position: relative;
+}
+
+/* Light theme (default) */
+.message-chat {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Dark theme */
+.message-chat.dark {
+  background-color: #121212;
+  color: #f5f5f7;
 }
 
 .chat-header {
@@ -17,16 +28,23 @@
   border-bottom: 1px solid #f5f5f7;
 }
 
+.dark .chat-header {
+  border-bottom: 1px solid #2d2d2d;
+}
+
 .chat-header h1 {
   font-size: 20px;
   font-weight: 500;
-  color: #1a1a1a;
   margin: 0;
 }
 
 .model-indicator {
   font-size: 13px;
   color: #6e6e73;
+}
+
+.dark .model-indicator {
+  color: #a1a1a6;
 }
 
 .chat-messages {
@@ -52,19 +70,83 @@
   text-align: center;
   padding: 32px;
   margin-bottom: 20px;
+  max-width: 800px;
 }
 
 .welcome-message h3 {
-  font-size: 28px;
+  font-size: 36px;
   margin: 0 0 16px 0;
-  color: #1a1a1a;
   font-weight: 500;
+}
+
+.dark .welcome-message h3 {
+  color: #f5f5f7;
 }
 
 .welcome-message p {
   font-size: 18px;
   line-height: 1.5;
   color: #6e6e73;
+  margin-bottom: 40px;
+}
+
+.dark .welcome-message p {
+  color: #a1a1a6;
+}
+
+/* Features section */
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.dark .feature-card {
+  background-color: #1e1e1e;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e6f7f1;
+  color: #0D9373;
+}
+
+.dark .feature-icon {
+  background-color: rgba(13, 147, 115, 0.2);
+}
+
+.feature-card h4 {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #6e6e73;
+  margin: 0;
+}
+
+.dark .feature-card p {
+  color: #a1a1a6;
 }
 
 .messages-wrapper {
@@ -95,6 +177,10 @@
   color: #6e6e73;
 }
 
+.dark .message-role {
+  color: #a1a1a6;
+}
+
 .message-content {
   font-size: 15px;
   line-height: 1.5;
@@ -108,10 +194,21 @@
   color: #1a1a1a;
 }
 
+.dark .user-message .message-content {
+  background-color: #2d2d2d;
+  color: #f5f5f7;
+}
+
 .assistant-message .message-content {
   background-color: #f8f8f8;
   color: #1a1a1a;
   border: 1px solid #f0f0f0;
+}
+
+.dark .assistant-message .message-content {
+  background-color: #1e1e1e;
+  color: #f5f5f7;
+  border: 1px solid #2d2d2d;
 }
 
 .typing-indicator {
@@ -148,23 +245,12 @@
 
 /* Input container styling */
 .input-container {
-  background-color: #fff;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-/* Initial centered state */
-.input-container.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0;
-}
-
-/* Bottom state after chat starts */
 .input-container.bottom {
   position: fixed;
   bottom: 0;
@@ -174,6 +260,23 @@
   margin: 0 auto;
   padding: 16px 24px;
   border-top: 1px solid #f5f5f7;
+  background-color: #ffffff;
+}
+
+.dark .input-container.bottom {
+  background-color: #121212;
+  border-top: 1px solid #2d2d2d;
+}
+
+/* Initial centered state */
+.input-container.centered {
+  position: absolute;
+  top: calc(50% + 120px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  width: 600px;
+  max-width: 90%;
 }
 
 .input-wrapper {
@@ -181,48 +284,96 @@
   max-width: 700px;
 }
 
-.input-wrapper.centered {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  border: 1px solid #e6e6e6;
+.search-form {
+  display: flex;
+  width: 100%;
 }
 
-.input-container form {
+.search-input-container {
+  flex: 1;
   display: flex;
   align-items: center;
-}
-
-.textarea-container {
-  flex: 1;
-  padding: 14px 20px;
   background-color: #f5f5f7;
   border-radius: 8px;
-  margin-right: 12px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  position: relative;
 }
 
-.textarea-container.centered {
-  padding: 18px 24px;
+.dark .search-input-container {
+  background-color: #2d2d2d;
+}
+
+.search-input-container:focus-within {
+  border-color: #0D9373;
+  box-shadow: 0 0 0 2px rgba(13, 147, 115, 0.2);
+}
+
+.search-input-container.centered {
+  margin-top:300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  border-radius: 12px;
 }
 
-textarea {
-  width: 100%;
+.dark .search-input-container.centered {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.search-icon {
+  color: #6e6e73;
+  margin-right: 10px;
+}
+
+.search-textarea {
+  flex: 1;
   border: none;
   background: transparent;
   resize: none;
-  padding: 4px 0;
+  padding: 14px 0;
   font-size: 16px;
   line-height: 1.5;
   max-height: 120px;
   outline: none;
   font-family: inherit;
+  color: inherit;
+}
+
+.search-textarea::placeholder {
+  color: #6e6e73;
+}
+
+.dark .search-textarea::placeholder {
+  color: #a1a1a6;
+}
+
+.search-button {
+  background-color: #0D9373;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.search-button:hover {
+  background-color: #0a7d5e;
+}
+
+.search-button:disabled {
+  background-color: #a1a1a6;
+  cursor: not-allowed;
 }
 
 .input-buttons {
   display: flex;
   align-items: center;
-  padding-right: 8px;
+  margin-left: 12px;
 }
 
 .submit-button {
@@ -237,11 +388,6 @@ textarea {
   cursor: pointer;
   color: white;
   flex-shrink: 0;
-}
-
-.submit-button.centered {
-  width: 40px;
-  height: 40px;
 }
 
 .submit-button:hover {
@@ -263,9 +409,18 @@ textarea {
     padding: 12px 16px;
   }
   
-  .input-wrapper.centered {
-    width: 90%;
-    max-width: 90%;
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature-card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .welcome-message h3 {
+    font-size: 28px;
   }
   
   .welcome-message {

@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { useState } from "react";
-
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { sendMessageToGroq } from '../api/search';
 import { ChatContext } from '../Sidebar/ChatContext';
 import './SearchHeader.css';
 
-const SearchHeader = () => {
+const SearchHeader = ({ theme }) => {
   const { messages, isLoading, addMessage, setLoading } = useContext(ChatContext);
   const [searchQuery, setSearchQuery] = useState('');
   const [headerText, setHeaderText] = useState('What do you want to know?');
@@ -23,12 +21,12 @@ const SearchHeader = () => {
   }, [messages]);
 
   // Auto-resize textarea based on content
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
-    }
-  }, [searchQuery]);
+  // useEffect(() => {
+  //   if (textareaRef.current) {
+  //     textareaRef.current.style.height = 'auto';
+  //     textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
+  //   }
+  // }, [searchQuery]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +65,7 @@ const SearchHeader = () => {
   };
 
   return (
-    <div className="message-chat">
+    <div className={`message-chat ${theme}`}>
       {chatStarted && (
         <div className="chat-header">
           <h1>{headerText}</h1>
@@ -81,8 +79,44 @@ const SearchHeader = () => {
         {!chatStarted ? (
           <div className="empty-state">
             <div className="welcome-message">
-              <h3>Welcome to Sexy AI</h3>
-              <p>How can I help you today?</p>
+              <h3>Get instant answers with Sexy AI</h3>
+              <p>Powered by Llama 3.3, our AI assistant provides accurate information and helpful responses to all your questions.</p>
+              
+              <div className="features-container">
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  </div>
+                  <h4>Fast Responses</h4>
+                  <p>Get intelligent responses in seconds</p>
+                </div>
+                
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4M12 8h.01"></path>
+                    </svg>
+                  </div>
+                  <h4>Smart Answers</h4>
+                  <p>Intelligent insights from the latest tech</p>
+                </div>
+                
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="9" y1="9" x2="15" y2="9"></line>
+                      <line x1="9" y1="12" x2="15" y2="12"></line>
+                      <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                  </div>
+                  <h4>Easy to Use</h4>
+                  <p>Just type and get answers instantly</p>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
@@ -93,7 +127,7 @@ const SearchHeader = () => {
                 className={`message-container ${msg.role === 'user' ? 'user-message' : 'assistant-message'}`}
               >
                 <div className="message-role">
-                  {msg.role === 'user' ? 'You' : 'Assistant'}
+                  {msg.role === 'user' ? 'You' : 'Sexy'}
                 </div>
                 <div className="message-content">
                   {msg.content}
@@ -119,31 +153,48 @@ const SearchHeader = () => {
 
       <div className={`input-container ${chatStarted ? 'bottom' : 'centered'}`}>
         <div className={`input-wrapper ${!chatStarted ? 'centered' : ''}`}>
-          <form onSubmit={handleSubmit}>
-            <div className={`textarea-container ${!chatStarted ? 'centered' : ''}`}>
+          <form onSubmit={handleSubmit} className="search-form">
+            <div className={`search-input-container ${!chatStarted ? 'centered' : ''}`}>
               <textarea
                 ref={textareaRef}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask anything..."
+                placeholder="Ask me anything..."
                 rows={1}
                 disabled={isLoading}
+                className="search-textarea"
               />
+              {!chatStarted && (
+               <div className="input-buttons">
+               <button 
+                 type="submit" 
+                 className="submit-button"
+                 disabled={isLoading || !searchQuery.trim()}
+               >
+                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                   <line x1="22" y1="2" x2="11" y2="13"></line>
+                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                 </svg>
+               </button>
+             </div>
+              )}
             </div>
             
-            <div className="input-buttons">
-              <button 
-                type="submit" 
-                className={`submit-button ${!chatStarted ? 'centered' : ''}`}
-                disabled={isLoading || !searchQuery.trim()}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              </button>
-            </div>
+            {chatStarted && (
+              <div className="input-buttons">
+                <button 
+                  type="submit" 
+                  className="submit-button"
+                  disabled={isLoading || !searchQuery.trim()}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+            )}
           </form>
         </div>
       </div>
