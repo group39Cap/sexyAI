@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useRef ,useContext,useState,useEffect} from "react";
 import { sendMessageToGroq } from '../api/search';
 import { ChatContext } from '../Sidebar/ChatContext';
 import './SearchHeader.css';
